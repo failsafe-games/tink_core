@@ -27,7 +27,8 @@ abstract Callback<T>(T->Void) from (T->Void) {
     #if macro
       f();
     #elseif tink_runloop
-      tink.RunLoop.current.work(f);
+      //tink.RunLoop.current.work(f);
+      haxe.Timer.delay(f, 0);
     #elseif hxnodejs
       js.Node.process.nextTick(f);
     #elseif luxe
